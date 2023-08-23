@@ -7,11 +7,7 @@ const notFound = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 
 app.use(express.json());
-app.use(express.static('./public'));
-
-app.get('/', (req, res) => {
-  res.status(200).send('Task manager app');
-});
+app.use('/', express.static('./public'));
 
 app.use('/api/v1/tasks', tasks);
 
